@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./style.css";
+import "./style.scss";
 import image from "assets/images/login.svg";
 class Login extends Component {
   render() {

@@ -1,0 +1,10 @@
+@mixin flexProps($direction,$alignment) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $alignment;
+}
+
+@mixin width_height($width,$height) {
+    width: $width;
+    height: $height;
+}

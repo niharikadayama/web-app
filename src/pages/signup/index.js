@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./style.css";
+import "./style.scss";
 import image from "assets/images/signup.png";
 class Signup extends Component {
   render() {

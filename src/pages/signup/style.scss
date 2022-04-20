@@ -1,34 +1,30 @@
+@import 'theme/colors';
+@import 'theme/styleFunctions';
+
 .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flexProps(column,center);
     margin-top: 10%;
 }
 .left{
     width: 50%;
 }
 .right{
-    width: 50%;
-    height: 100%;
-    background-color: #6C63FF;
-    display: flex;
+    @include width_height(50%,100%);
+    background-color: $primaryThemeColor;
     padding-left: 16px;
-    flex-direction: column;
-    align-items: flex-start;
+    @include flexProps(column, flex-start);
 }
 .imgStyle{
-    width: 100%;
-    height: 100%;
+    @include width_height(100%, 100%);
 }
 .title{
-    color: #fff;
+    color: $white;
     padding-top: 16px;
 }
 .card {
-    background: #fff;
+    background: $white;
     border-radius: 2px;
-    height: 360px;
-    width: 600px;
+    @include width_height(600px, 360px);
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30),
     0 15px 12px rgba(0, 0, 0, 0.22);
     display: flex;
@@ -36,31 +32,29 @@
     justify-content: center;
 }
 input {
-    border: 2px solid #fff;
+    border: 2px solid $white;
     border-radius: 6px;
     margin: 5px 0 10px;
     width: 100%;
     padding: 6px 0 6px 6px;
-    color: #656880;
+    color: $lightGrey;
 }
 form{
     width: 260px;
     padding: 6px 0 6px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flexProps(column, center);
 }
 button{
     all:unset;
     margin-top: 12px;
     padding: 4px 12px;
-    background-color: #fff;
-    border: 1px solid #fff;
+    background-color: $white;
+    border: 1px solid $white;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.30);
 }
 p{
     font-size: 13px;
-    color: #fff;
+    color: $white;
     padding-left: 18%;
 }
 span{
