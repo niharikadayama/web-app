@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import image from "../../assets/images/login.svg";
+import image from "assets/images/login.svg";
 class Login extends Component {
   render() {
     return (
