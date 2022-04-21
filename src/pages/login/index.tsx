@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./style.scss";
-import image from "assets/images/login.svg";
+import { Images } from "theme/images";
 class Login extends Component {
   render() {
     return (
       <section className="container">
         <div className="card">
           <div className="left">
-            <img src={image} alt="sign-in" className="imgStyle" />
+            <img src={Images.loginImage} alt="sign-in" className="imgStyle" />
           </div>
           <div className="right">
             <h1 className="title">Login</h1>

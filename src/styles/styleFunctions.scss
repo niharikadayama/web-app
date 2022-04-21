@@ -1,0 +1,40 @@
+@mixin flexProps($direction,$alignment) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $alignment;
+}
+
+@mixin width_height($width,$height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin breakpoint($point) {
+    @if $point == largeDesktop {
+        @media only screen and (min-width: 1919px){ @content; }
+    }
+    @else if $point == desktop {
+        @media only screen and (min-width: 1365px) { @content; }
+    }
+    @else if $point == laptop {
+        @media only screen and (min-width: 800px) { @content; }
+    }
+    @else if $point == ipad {
+        @media only screen and (max-width: 1024px) { @content; }
+    }
+    @else if $point== tablet {
+        @media only screen and (min-width: 1024px) { @content; }
+    }
+    @else if $point == mobile {
+        @media only screen and (max-width: 415px) { @content; }
+    }
+    @else if $point == mediumMobile {
+        @media only screen and (max-width: 375px) { @content; }
+    }
+    @else if $point == smallMobile {
+        @media only screen and (max-width: 320px) { @content; }
+    }
+    @else if $point == verticalAlignment {
+        @media (max-height: 768px) and (max-width:414px) { @content; }
+    }
+}
