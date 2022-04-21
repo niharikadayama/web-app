@@ -3,36 +3,38 @@
 
 .container{
     @include flexProps(column,center);
-    margin-top: 15%;
+    margin: 15%;
+    // padding: 0 4% 0 4%;
     .card {
         background: $white;
         border-radius: 2px;
-        @include width_height(600px, 360px);
         box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30),
             0 15px 12px rgba(0, 0, 0, 0.22);
         display: flex;
         align-items: center;
         justify-content: center;
-        .left {
+        div{
             width: 50%;
+            height: 100%;
+        }
+        .left {
             .imgStyle {
                 @include width_height(100%, 100%);
             }
         }
-        .right {
-            @include width_height(50%, 100%);
+        .right {   
+            height: 361px;
             background-color: $primaryThemeColor;
             @include flexProps(column, center);
             .title {
                 color: $white;
-                padding-top: 16px;
             }
             
             input {
                 border: 2px solid $white;
                 border-radius: 6px;
-                margin: 5px 0 10px;
-                width: 100%;
+                margin: 5px 0 10px 0;
+                width: 90%;
                 padding: 6px 0 6px 6px;
                 color: $lightGrey;
                 -webkit-transition: 0.5s;
@@ -46,7 +48,7 @@
                 }
             }
             form {
-                width: 260px;
+                width:100%;
                 padding: 6px 0 6px 0;
                 @include flexProps(column, center);
                 .errorMessage {
@@ -88,34 +90,39 @@
         }
     }
 }
+@include breakpoint(largeDesktop) {
+    .right {
+        height: 518px !important
+    }
+}
 @include breakpoint(desktop) {
-   
+    .right {
+        height: 385px !important
+    }
 }
 @include breakpoint(mobile){
     .container{
         flex-direction: column;
-        margin-top: 30%;
+        margin: 30% 0;
         .card {
             box-shadow: none;
             .left {
                 display: none;
             }
             .right {
-                width: 60%;
+                width: 340px;
             }
         }
     }
 }
-@include breakpoint(mediumMobile) {
-    .right{
-        width: 50%;
+@include breakpoint(smallMobile) {
+    .right {
+        width: 280px !important
     }
 }
 
 @include breakpoint(verticalAlignment){
-    .container{
-        margin-top: 40%;
-    }
+    
 }
 
 

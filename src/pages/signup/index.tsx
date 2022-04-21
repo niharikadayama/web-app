@@ -30,7 +30,7 @@ class Signup extends Component<{}, any> {
     if (!email) {
       formIsValid = false;
       formErrors["emailErr"] = "Email id is required.";
-    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    } else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
       formIsValid = false;
       formErrors["emailErr"] = "Invalid email id.";
     }
