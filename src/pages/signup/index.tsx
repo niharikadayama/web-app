@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./style.scss";
 import { Images } from "theme/images";
 
-class Signup extends Component {
+class Signup extends Component<{}, any> {
+  initialState: any;
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +12,7 @@ class Signup extends Component {
       password: "",
       formErrors: {},
     };
+    this.initialState = this.state;
   }
   handleFormValidation() {
     const { username, email, password } = this.state;
@@ -56,6 +58,7 @@ class Signup extends Component {
     if (this.handleFormValidation()) {
       alert("You have been successfully registered.");
       this.setState(this.initialState);
+      console.log(this.state);
     }
   };
   render() {
