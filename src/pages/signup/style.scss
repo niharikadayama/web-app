@@ -43,9 +43,6 @@
                 &:focus{
                     border: 2px solid $primaryThemeColor;
                 }
-                .showError {
-                    padding: 3px 0 3px 3px;
-                }
             }
             form {
                 width:100%;
@@ -53,8 +50,8 @@
                 @include flexProps(column, center);
                 .errorMessage {
                     font-size: 12px;
-                    margin-top: -5px;
-                    margin-right: -60%;
+                    align-self: flex-start;
+                    padding-left: 16px;
                     color: $red;
                 }
             }
