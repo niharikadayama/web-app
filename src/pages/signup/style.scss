@@ -72,6 +72,11 @@
             border: 1px solid $primaryThemeColor;
           }
         }
+        .errorMessage {
+          font-size: 12px;
+          padding: 6px 0 0 0;
+          color: $red;
+        }
         button {
           padding: 12px 6px;
           margin-top: 20px;
