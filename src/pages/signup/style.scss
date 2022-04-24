@@ -1,128 +1,226 @@
-@import 'styles/colors';
-@import 'styles/styleFunctions';
+@import "styles/colors";
+@import "styles/styleFunctions";
 
-.container{
-    @include flexProps(column,center);
-    margin: 15%;
-    // padding: 0 4% 0 4%;
-    .card {
-        background: $white;
-        border-radius: 2px;
-        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30),
-            0 15px 12px rgba(0, 0, 0, 0.22);
+.container {
+  @include containerProps(absolute, 0px, 0px, 0px, 0px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .circle {
+    background: $primaryThemeColorExtraLight;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: -80px;
+    right: -80px;
+  }
+  .hollow-circle {
+    border: 40px solid $primaryThemeColor;
+    border-radius: 50%;
+    width: 260px;
+    height: 260px;
+    position: absolute;
+    bottom: -26px;
+    left: -80px;
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    border-radius: 4px;
+    box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    .right {
+      padding: 0 26px;
+      .header {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        div{
-            width: 50%;
-            height: 100%;
-        }
-        .left {
-            .imgStyle {
-                @include width_height(100%, 100%);
-            }
-        }
-        .right {   
-            height: 361px;
-            background-color: $primaryThemeColor;
-            @include flexProps(column, center);
-            .title {
-                color: $white;
-            }
-            
-            input {
-                border: 2px solid $white;
-                border-radius: 6px;
-                margin: 5px 0 10px 0;
-                width: 90%;
-                padding: 6px 0 6px 6px;
-                color: $lightGrey;
-                -webkit-transition: 0.5s;
-                transition: 0.5s;
-                outline: none;
-                &:focus{
-                    border: 2px solid $primaryThemeColor;
-                }
-            }
-            form {
-                width:100%;
-                padding: 6px 0 6px 0;
-                @include flexProps(column, center);
-                .errorMessage {
-                    font-size: 12px;
-                    align-self: flex-start;
-                    padding-left: 16px;
-                    color: $red;
-                }
-            }
-            
-            .registerButton {
-                all: unset;
-                margin-top: 12px;
-                padding: 4px 12px;
-                background-color: $white;
-                border: 1px solid $white;
-                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.30);
-                &:hover{
-                    background-color: $primaryThemeColorLight;
-                    border: 1px solid $primaryThemeColorLight;
-                    color: $white;
-                    cursor: pointer;
-                }
-            }
-            p {
-                font-size: 13px;
-                color: $white;
-                span {
-                    font-size: 15px;
-                    font-weight: bold;
-                    .loginNavButton{
-                        all: unset;
-                        &:hover{
-                            cursor: pointer;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-@include breakpoint(largeDesktop) {
-    .right {
-        height: 518px !important
-    }
-}
-@include breakpoint(desktop) {
-    .right {
-        height: 385px !important
-    }
-}
-@include breakpoint(mobile){
-    .container{
         flex-direction: column;
-        margin: 30% 0;
-        .card {
-            box-shadow: none;
-            .left {
-                display: none;
-            }
-            .right {
-                width: 340px;
-            }
+        align-items: center;
+        padding-bottom: 8px;
+        .title {
+          font-size: 28px;
+          font-weight: 500;
+          color: $black;
+          margin: 0;
+          padding-bottom: 8px;
         }
+        p {
+          font-size: 16px;
+          font-weight: 400;
+          color: $lightGrey;
+          margin: 0;
+        }
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        color: $darkGrey;
+        label {
+          font-size: 14px;
+          padding: 16px 0 6px 0;
+        }
+        input {
+          all: unset;
+          padding: 12px 9px;
+          font-size: 13px;
+          border-radius: 4px;
+          box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+          &:focus {
+            box-shadow: 0 0 5px $primaryThemeColor;
+            border: 1px solid $primaryThemeColor;
+          }
+        }
+        button {
+          padding: 12px 6px;
+          margin-top: 20px;
+          border: 1px solid $primaryThemeColor;
+          border-radius: 4px;
+          background-color: $primaryThemeColor;
+          color: $white;
+          font-size: 18px;
+          cursor: pointer;
+          &:hover {
+            background-color: $primaryThemeColorLight;
+            border-color: $primaryThemeColorLight;
+          }
+        }
+      }
+      .footer {
+        margin-top: -10px;
+
+        h4 {
+          display: flex;
+          flex-direction: row;
+          color: $lightGrey;
+
+          &::before,
+          &::after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid $lightGrey;
+            margin: auto;
+          }
+        }
+        .google-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $white;
+          border-radius: 4px;
+          box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+          .google-icon {
+            padding-right: 12px;
+          }
+          .btn-text {
+            color: $darkGrey;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+          }
+          &:hover {
+            box-shadow: 0 0 6px $primaryThemeColor;
+          }
+        }
+
+        p {
+          color: $darkGrey;
+          font-size: 13px;
+
+          span {
+            button {
+              all: unset;
+              color: $primaryThemeColor;
+              cursor: pointer;
+            }
+          }
+        }
+      }
     }
+  }
 }
-@include breakpoint(smallMobile) {
-    .right {
-        width: 280px !important
+@include breakpoint(mobile) {
+  .container {
+
+    .circle,
+    .hollow-circle {
+      display: none;
     }
+
+    .card {
+      box-shadow: none;
+
+      .left {
+        display: none;
+      }
+    }
+  }
 }
 
-@include breakpoint(verticalAlignment){
-    
+@include breakpoint(largeDesktop) {
+  .container {
+    .card {
+      width: 80%;
+
+      .left {
+        flex-grow: 1;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .right {
+        flex-grow: 1;
+
+        .header {
+          margin-top: -100px;
+
+          .title {
+            font-size: 30px;
+          }
+
+          p {
+            font-size: 20px;
+          }
+        }
+
+        form {
+          padding: 40px 0;
+
+          label {
+            font-size: 18px;
+          }
+
+          input {
+            padding: 15px 12px;
+          }
+
+          button {
+            padding: 15px 12px;
+            font-size: 19px;
+          }
+        }
+
+        .footer {
+          .google-btn {
+            .google-icon {
+              padding-right: 15px;
+            }
+
+            .btn-text {
+              color: $darkGrey;
+              font-size: 19px;
+              letter-spacing: 0.2px;
+            }
+          }
+
+          p {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
 }
-
-
-
-
-
