@@ -2,7 +2,7 @@
 @import "styles/styleFunctions";
 
 .container {
-  @include containerProps(absolute, 0px, 0px, 0px, 0px);
+  @include containerProps(fixed, 0px, 0px, 0px, 0px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,16 +20,17 @@
   .hollow-circle {
     border: 40px solid $primaryThemeColor;
     border-radius: 50%;
-    width: 260px;
-    height: 260px;
+    width: 250px;
+    height: 250px;
     position: absolute;
-    bottom: -26px;
+    bottom: -28px;
     left: -80px;
   }
 
   .card {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: $white;
     border-radius: 4px;
     box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.3);
@@ -37,25 +38,26 @@
 
     .right {
       padding: 0 26px;
+
       .header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-bottom: 8px;
+
         .title {
-          font-size: 28px;
+          font-size: 24px;
           font-weight: 500;
+          margin-bottom: 0;
           color: $black;
-          margin: 0;
-          padding-bottom: 16px;
         }
+
         p {
-          font-size: 16px;
+          font-size: 15px;
           font-weight: 400;
           color: $lightGrey;
-          margin: 0;
         }
       }
+
       form {
         display: flex;
         flex-direction: column;
@@ -63,7 +65,7 @@
 
         label {
           font-size: 14px;
-          padding: 16px 0 6px 0;
+          padding: 12px 0 6px 0;
         }
 
         input {
@@ -79,14 +81,20 @@
           }
         }
 
+        .errorMessage {
+          font-size: 12px;
+          padding: 6px 0 0 0;
+          color: $red;
+        }
+
         button {
-          padding: 12px 6px;
+          padding: 12px 9px;
           margin-top: 20px;
           border: 1px solid $primaryThemeColor;
           border-radius: 4px;
           background-color: $primaryThemeColor;
           color: $white;
-          font-size: 18px;
+          font-size: 17px;
           cursor: pointer;
 
           &:hover {
@@ -121,21 +129,26 @@
           border-radius: 4px;
           box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
           cursor: pointer;
+
           .google-icon {
             padding-right: 12px;
           }
+
           .btn-text {
             color: $darkGrey;
             font-size: 14px;
             letter-spacing: 0.2px;
           }
+
           &:hover {
             box-shadow: 0 0 6px $primaryThemeColor;
           }
         }
+
         p {
           color: $darkGrey;
           font-size: 13px;
+
           span {
             button {
               all: unset;
@@ -148,71 +161,53 @@
     }
   }
 }
-@include breakpoint(mobile){
-    .container{
-        .circle,.hollow-circle{
-            display: none;
-        }
-        .card{
-            box-shadow: none;
-            .left{
-              display: none;
-            }
-        }
+
+@include breakpoint(mobile) {
+  .container {
+
+    .circle,
+    .hollow-circle {
+      display: none;
     }
-}
-@include breakpoint(largeDesktop){
-    .container{
-        .card{
-            width: 80%;
-            .left{
-                flex-grow: 1;
-                img{
-                    width: 100%;
-                }
-            }
-            .right{
-                flex-grow: 1;
-                .header{
-                    margin-top: -100px;
-                    .title{
-                        font-size: 30px;
-                    }
-                    p{
-                        font-size: 20px;
-                    }
-                }
-                form{
-                    padding: 40px 0;
-                    label{
-                        font-size: 18px;
-                    }
-                    input{
-                        padding: 15px 12px;
-                    }
-                    button{
-                        padding: 15px 12px;
-                        font-size: 19px;
-                    }
-                }
-                .footer{
-                   .google-btn {
-                        .google-icon {
-                            padding-right: 15px;
-                        }
-                        .btn-text {
-                            color: $darkGrey;
-                            font-size: 19px;
-                            letter-spacing: 0.2px;
-                        }
-                   }
-                   p{
-                       font-size: 17px;
-                   }
-                }
-            }
-        }
+
+    .card {
+      box-shadow: none;
+
+      .left {
+        display: none;
+      }
     }
+  }
 }
 
+@include breakpoint(tablet) {
+  .container {
+    .card {
+      width: 70%;
 
+      .left {
+        display: none;
+      }
+
+      .right {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+@include breakpoint(ipad) {
+  .container {
+    .card {
+      width: 70%;
+
+      .left {
+        display: none;
+      }
+
+      .right {
+        flex-grow: 1;
+      }
+    }
+  }
+}

@@ -37,7 +37,7 @@ class Signup extends Component<{}, any> {
     if (!password) {
       formIsValid = false;
       formErrors["passwordErr"] = "password is required.";
-    } else if (!/^(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/.test(password)) {
+    } else if (password.length < 6) {
       formIsValid = false;
       formErrors["passwordErr"] = "Invalid password";
     }
