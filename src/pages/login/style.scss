@@ -1,0 +1,213 @@
+@import "styles/colors";
+@import "styles/styleFunctions";
+
+.container {
+  @include containerProps(fixed, 0px, 0px, 0px, 0px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .circle {
+    background: $primaryThemeColorExtraLight;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: -80px;
+    right: -80px;
+  }
+
+  .hollow-circle {
+    border: 40px solid $primaryThemeColor;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    bottom: -28px;
+    left: -80px;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    border-radius: 4px;
+    box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.3);
+    z-index: 10;
+
+    .right {
+      padding: 0 26px;
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+          font-size: 24px;
+          font-weight: 500;
+          margin-bottom: 0;
+          color: $black;
+        }
+
+        p {
+          font-size: 15px;
+          font-weight: 400;
+          color: $lightGrey;
+        }
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        color: $darkGrey;
+
+        label {
+          font-size: 14px;
+          padding: 12px 0 6px 0;
+        }
+
+        input {
+          all: unset;
+          padding: 12px 9px;
+          font-size: 13px;
+          border-radius: 4px;
+          box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+
+          &:focus {
+            box-shadow: 0 0 5px $primaryThemeColor;
+            border: 1px solid $primaryThemeColor;
+          }
+        }
+
+        .errorMessage {
+          font-size: 12px;
+          padding: 6px 0 0 0;
+          color: $red;
+        }
+
+        button {
+          padding: 12px 9px;
+          margin-top: 20px;
+          border: 1px solid $primaryThemeColor;
+          border-radius: 4px;
+          background-color: $primaryThemeColor;
+          color: $white;
+          font-size: 17px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $primaryThemeColorLight;
+            border-color: $primaryThemeColorLight;
+          }
+        }
+      }
+
+      .footer {
+        margin-top: -10px;
+
+        h4 {
+          display: flex;
+          flex-direction: row;
+          color: $lightGrey;
+
+          &::before,
+          &::after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid $lightGrey;
+            margin: auto;
+          }
+        }
+
+        .google-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $white;
+          border-radius: 4px;
+          box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+
+          .google-icon {
+            padding-right: 12px;
+          }
+
+          .btn-text {
+            color: $darkGrey;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+          }
+
+          &:hover {
+            box-shadow: 0 0 6px $primaryThemeColor;
+          }
+        }
+
+        p {
+          color: $darkGrey;
+          font-size: 13px;
+
+          span {
+            button {
+              all: unset;
+              color: $primaryThemeColor;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(mobile) {
+  .container {
+
+    .circle,
+    .hollow-circle {
+      display: none;
+    }
+
+    .card {
+      box-shadow: none;
+
+      .left {
+        display: none;
+      }
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  .container {
+    .card {
+      width: 70%;
+
+      .left {
+        display: none;
+      }
+
+      .right {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+@include breakpoint(ipad) {
+  .container {
+    .card {
+      width: 70%;
+
+      .left {
+        display: none;
+      }
+
+      .right {
+        flex-grow: 1;
+      }
+    }
+  }
+}
